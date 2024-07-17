@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="1155e0cf-8119-400b-ad51-6676067213f2" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="calculatorFlow" doc:id="54c63024-e9c7-4c5e-a2d1-d9a579e5469e" >
+		<http:listener doc:name="Listener" doc:id="38bac0ac-ecbf-4c0c-8feb-a0ab9d738623" config-ref="HTTP_Listener_config" path="/add"/>
+		<logger level="INFO" doc:name="Logger" doc:id="7431abd3-27ac-4e97-97f7-5041fd91fdbf" message="added successfully"/>
+	</flow>
+</mule>
