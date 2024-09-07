@@ -10,6 +10,14 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="calculatorFlow" doc:id="54c63024-e9c7-4c5e-a2d1-d9a579e5469e" >
 		<http:listener doc:name="Listener" doc:id="38bac0ac-ecbf-4c0c-8feb-a0ab9d738623" config-ref="HTTP_Listener_config" path="/add"/>
+		<ee:transform doc:name="Transform Message" doc:id="766d549c-86c2-4fb4-bb46-1da94a00d5fe" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+"a+b"]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="7431abd3-27ac-4e97-97f7-5041fd91fdbf" message="added successfully"/>
 	</flow>
 </mule>
